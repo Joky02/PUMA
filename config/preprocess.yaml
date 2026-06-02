@@ -1,0 +1,13 @@
+defaults:
+  - _self_
+  - hydra: preprocess
+  - dataset: SC
+  - paths: common
+
+num_workers: 50
+num_solve: 1000
+
+gurobi:
+  max_time: 3600
+  max_stored_sol: 500
+  threads: 1

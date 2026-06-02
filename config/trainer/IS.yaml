@@ -1,0 +1,41 @@
+batch_size: 5
+num_samples: 15
+num_epochs: 1200
+
+
+optim:
+  optimizer: adam
+  weight_decay: 0.0
+  momentum: 0.9
+
+  lr:
+    scheduler: cos
+    anneal_step: 100
+    anneal_factor: 0.9
+    warmup_steps: 50
+    cos_T: 200
+    cos_min: 1e-8
+
+  lr_l: 0.0
+  lr_i: 0.0001
+  lr_o: 0.0001
+    
+
+mu:
+  init: 100.0
+  step: 1
+  step_size: 1.0
+  max: 400
+  min: 300
+  T: 20
+  value: 1.0
+  warmup: 100
+
+p_flip:
+  init: 0.02
+  step_size: 0.995
+
+p_samples: 10
+
+entr_coef: 10.0
+loss_config: "normalize"

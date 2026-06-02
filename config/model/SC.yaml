@@ -1,0 +1,5 @@
+embd_size: 32
+depth: 2
+num_heads: 2
+
+delta: 200

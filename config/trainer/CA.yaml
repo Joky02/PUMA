@@ -1,0 +1,70 @@
+batch_size: 5
+num_samples: 15
+num_epochs: 9900
+
+
+optim:
+  optimizer: adam
+  weight_decay: 0.0
+  momentum: 0.3
+
+  lr:
+    scheduler: cos
+    anneal_step: 100
+    anneal_factor: 0.996
+    warmup_steps: 50
+    cos_T: 200
+    cos_min: 1e-8
+
+  lr_l: 0.0
+  lr_i: 0.0001
+  lr_o: 0.0001
+
+mu:
+  init: 150
+  step: 1
+  step_size: 0.01
+  max: 150
+  min: 130
+  T: 10
+  value: 200
+  warmup: 100
+
+p_flip:
+  init: 0.02 # 0.01
+  step_size: 0.995
+
+
+#workspace/train/05-03/16_32_26-CA-0-lr_0.0001_200-bs5-sample30-mu30_0.005_0.0_50_0.1_emb32-dep10-normalize-p_flip_0.02_0.995
+#mu:
+#  init: 30
+#  step: 1
+#  step_size: 0.005
+#  max: 50
+#  min: 0.0
+#  value: 0.1
+#  warmup: 100
+#
+#p_flip:
+#  init: 0.02
+#  step_size: 0.995
+
+
+
+
+#mu:
+#  init: 50
+#  step: 1
+#  step_size: 0.001
+#  max: 50
+#  min: 0.0
+#  value: 1
+#  warmup: 100
+
+#p_flip:
+#  init: 0.01
+#  step_size: 0.995
+
+entr_coef: 10.0
+loss_config: "normalize"
+

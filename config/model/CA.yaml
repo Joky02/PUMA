@@ -1,0 +1,6 @@
+name: gnn          # model name
+embd_size: 32
+depth: 10
+
+delta: 250
+

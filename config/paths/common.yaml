@@ -1,0 +1,12 @@
+data_dir: ./data/${dataset.name}/
+train_data_dir: ./data/${dataset.name}/train/
+test_data_dir: ./data/${dataset.name}/test/
+
+preprocess_dir: ./workspace/dataset/${dataset.name}/
+data_samples_dir: ./workspace/dataset/${dataset.name}/samples/
+data_tensors_dir: ./workspace/dataset/${dataset.name}/tensors/
+data_solution_dir: ./workspace/dataset/${dataset.name}/solutions/
+data_solve_log_dir: ./workspace/dataset/${dataset.name}/logs/
+
+tensorboard_dir: ./workspace/train/${now:%m-%d}/${now:%H_%M_%S}-${job_name}/
+model_save_dir: ./workspace/train/${now:%m-%d}/${now:%H_%M_%S}-${job_name}/models/

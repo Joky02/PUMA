@@ -1,0 +1,15 @@
+defaults:
+  - _self_
+  - hydra: train
+  - dataset: SC
+  - trainer: ${dataset}
+  - model: ${dataset}
+  - paths: common
+
+job_name: ${dataset.name}-${cuda}-lr_${trainer.optim.lr_o}_${trainer.optim.lr.cos_T}-bs${trainer.batch_size}-sample${trainer.num_samples}-mu${trainer.mu.init}_${trainer.mu.step_size}_${trainer.mu.min}_${trainer.mu.max}_${trainer.mu.value}_emb${model.embd_size}-dep${model.depth}-${trainer.loss_config}-p_flip_${trainer.p_flip.init}_${trainer.p_flip.step_size}
+
+job:
+
+seed: 2
+cuda: 5
+num_workers: 2

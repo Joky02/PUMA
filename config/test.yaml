@@ -1,0 +1,50 @@
+defaults:
+  - _self_
+  - hydra: test
+  - dataset: CA
+  - model: ${dataset}
+
+#job_name: k0_${model.k_0}_k1_${model.k_1}_delta_${model.delta}
+job_name : ${dataset.name}-delta_${model.delta}-solver_${solver}-num_start_${num_start}
+
+solver: gurobi
+time_limit: 1000
+seed: 3
+cuda: 1
+num_workers: 10
+num_start: 1
+
+
+
+model_dir: ./workspace/models/${dataset.name}
+mu: 10
+
+paths:
+  data_dir: ./data/${dataset.name}/
+  train_data_dir: ./data/${dataset.name}/train/
+  test_data_dir: ./data/${dataset.name}/test/
+
+  preprocess_dir: ./preprocess/${dataset.name}/
+  data_samples_dir: ./preprocess/${dataset.name}/samples/
+  data_tensors_dir: ./preprocess/${dataset.name}/tensors/
+  data_solution_dir: ./preprocess/${dataset.name}/solutions/
+  data_solve_log_dir: ./preprocess/${dataset.name}/logs/
+
+  model_save_dir: ./workspace/train/${now:%m_%d}/${now:%H_%M_%S}-${job_name}/models/
+
+  test_dir: ${model_dir}/test/${now:%m-%d}/${now:%H_%M_%S}-${job_name}/
+  tensorboard_dir: ${model_dir}/test/${now:%m-%d}/${now:%H_%M_%S}-${job_name}/
+
+
+#data_dir: ./data/${dataset.name}/
+#train_data_dir: ./data/${dataset.name}/train/
+#test_data_dir: ./data/${dataset.name}/test/
+#
+#preprocess_dir: ./workspace/dataset/${dataset.name}/
+#data_samples_dir: ./workspace/dataset/${dataset.name}/samples/
+#data_tensors_dir: ./workspace/dataset/${dataset.name}/tensors/
+#data_solution_dir: ./workspace/dataset/${dataset.name}/solutions/
+#data_solve_log_dir: ./workspace/dataset/${dataset.name}/logs/
+#
+#tensorboard_dir: ./workspace/train/${now:%m_%d}/${now:%H_%M_%S}-${job_name}/
+#model_save_dir: ./workspace/train/${now:%m_%d}/${now:%H_%M_%S}-${job_name}/models/
